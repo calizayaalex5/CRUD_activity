@@ -6,7 +6,7 @@ const doc = {
         description: "API de Videojuegos"
     },
     host: "crud-activity.onrender.com",
-    schemes: ["http", "https"]
+    schemes: ["https"]
 };
 
 const outputFile = "./swagger.json";
