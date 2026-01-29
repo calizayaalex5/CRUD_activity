@@ -25,19 +25,6 @@ const getClienteById = async (req, res) => {
 
 //Crear cliente
 const createCliente = async (req, res) => {
-    /* #swagger.parameters['body'] = {
-            in: 'body',
-            description: 'Agregar un nuevo cliente',
-            schema: {
-                nombre: "Alex",
-                apellido: "Calizaya",
-                email: "[EMAIL_ADDRESS]",
-                telefono: "123456789",
-                fechaNacimiento: "2005-01-01",
-                ciudad: "Tacna",
-                pais: "Peru"
-            }
-    } */
     try {
         const nuevoCliente = await Clientes.create(req.body);
         const savedCliente = await nuevoCliente.save();
