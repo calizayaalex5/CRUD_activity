@@ -25,6 +25,20 @@ const getVideojuegoById = async (req, res) => {
 
 //Crear un nuevo item
 const createGame = async (req, res) => {
+    /* #swagger.parameters['body'] = {
+            in: 'body',
+            description: 'Agregar un nuevo videojuego',
+            schema: {
+                title: "Hytale",
+                author: "Hypixel Studios",
+                published_date: "2022-06-14",
+                price: 19.99,
+                publisher: "Riot Games",
+                category: "Sandbox",
+                stock: 100,
+                description: "Un juego de aventura y construcción"
+            }
+    } */
     try {
         const nuevoJuego = await Videojuegos.create(req.body);
         const savedItem = await nuevoJuego.save();
