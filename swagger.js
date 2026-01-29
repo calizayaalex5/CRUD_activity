@@ -5,7 +5,7 @@ const doc = {
         title: "API de Videojuegos",
         description: "API de Videojuegos"
     },
-    host: "localhost:3000",
+    host: "https://crud-activity.onrender.com",
     schemes: ["http", "https"]
 };
 
