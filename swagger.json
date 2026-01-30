@@ -76,8 +76,8 @@
           }
         ],
         "responses": {
-          "200": {
-            "description": "OK"
+          "201": {
+            "description": "Created"
           },
           "500": {
             "description": "Internal Server Error"
@@ -130,11 +130,11 @@
                 },
                 "apellido": {
                   "type": "string",
-                  "example": "Perez Actualizado"
+                  "example": "Segundo"
                 },
                 "email": {
                   "type": "string",
-                  "example": "juan.perez@gmail.com"
+                  "example": "leonard@gmail.com"
                 },
                 "telefono": {
                   "type": "string",
@@ -194,42 +194,9 @@
     "/videojuegos/": {
       "get": {
         "description": "Retorna todos los videojuegos de la base de datos.",
-        "parameters": [
-          {
-            "name": "body",
-            "in": "body",
-            "description": "Campos a actualizar en el videojuego.",
-            "schema": {
-              "type": "object",
-              "properties": {
-                "title": {
-                  "type": "string",
-                  "example": "The Last of Us Part I"
-                },
-                "price": {
-                  "type": "number",
-                  "example": 49.99
-                },
-                "stock": {
-                  "type": "number",
-                  "example": 80
-                }
-              }
-            }
-          }
-        ],
         "responses": {
           "200": {
             "description": "OK"
-          },
-          "201": {
-            "description": "Created"
-          },
-          "204": {
-            "description": "No Content"
-          },
-          "404": {
-            "description": "Not Found"
           },
           "500": {
             "description": "Internal Server Error"
@@ -348,8 +315,8 @@
           }
         ],
         "responses": {
-          "204": {
-            "description": "No Content"
+          "200": {
+            "description": "OK"
           },
           "404": {
             "description": "Not Found"

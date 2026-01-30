@@ -56,8 +56,8 @@ const editCliente = async (req, res) => {
             description: 'Datos del cliente a actualizar.',
             schema: {
                 nombre: "Juan",
-                apellido: "Perez Actualizado",
-                email: "juan.perez@gmail.com",
+                apellido: "Segundo",
+                email: "leonard@gmail.com",
                 telefono: "987654321",
                 fechaNacimiento: "1990-01-01",
                 ciudad: "Barcelona",
