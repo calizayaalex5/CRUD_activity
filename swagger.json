@@ -23,7 +23,7 @@
     },
     "/clientes/": {
       "get": {
-        "description": "",
+        "description": "Obtiene la lista completa de clientes.",
         "responses": {
           "200": {
             "description": "OK"
@@ -35,6 +35,46 @@
       },
       "post": {
         "description": "",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "description": "Datos para registrar un nuevo cliente.",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "nombre": {
+                  "type": "string",
+                  "example": "Juan"
+                },
+                "apellido": {
+                  "type": "string",
+                  "example": "Perez"
+                },
+                "email": {
+                  "type": "string",
+                  "example": "juan.perez@gmail.com"
+                },
+                "telefono": {
+                  "type": "string",
+                  "example": "123456789"
+                },
+                "fechaNacimiento": {
+                  "type": "string",
+                  "example": "1990-01-01"
+                },
+                "ciudad": {
+                  "type": "string",
+                  "example": "Madrid"
+                },
+                "pais": {
+                  "type": "string",
+                  "example": "España"
+                }
+              }
+            }
+          }
+        ],
         "responses": {
           "200": {
             "description": "OK"
@@ -47,7 +87,7 @@
     },
     "/clientes/{id}": {
       "get": {
-        "description": "",
+        "description": "Obtiene un cliente específico por su ID de MongoDB.",
         "parameters": [
           {
             "name": "id",
@@ -76,6 +116,44 @@
             "in": "path",
             "required": true,
             "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "description": "Datos del cliente a actualizar.",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "nombre": {
+                  "type": "string",
+                  "example": "Juan"
+                },
+                "apellido": {
+                  "type": "string",
+                  "example": "Perez Actualizado"
+                },
+                "email": {
+                  "type": "string",
+                  "example": "juan.perez@gmail.com"
+                },
+                "telefono": {
+                  "type": "string",
+                  "example": "987654321"
+                },
+                "fechaNacimiento": {
+                  "type": "string",
+                  "example": "1990-01-01"
+                },
+                "ciudad": {
+                  "type": "string",
+                  "example": "Barcelona"
+                },
+                "pais": {
+                  "type": "string",
+                  "example": "España"
+                }
+              }
+            }
           }
         ],
         "responses": {
@@ -91,7 +169,7 @@
         }
       },
       "delete": {
-        "description": "",
+        "description": "Elimina un cliente permanentemente de la base de datos.",
         "parameters": [
           {
             "name": "id",
@@ -115,10 +193,43 @@
     },
     "/videojuegos/": {
       "get": {
-        "description": "",
+        "description": "Retorna todos los videojuegos de la base de datos.",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "description": "Campos a actualizar en el videojuego.",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "title": {
+                  "type": "string",
+                  "example": "The Last of Us Part I"
+                },
+                "price": {
+                  "type": "number",
+                  "example": 49.99
+                },
+                "stock": {
+                  "type": "number",
+                  "example": 80
+                }
+              }
+            }
+          }
+        ],
         "responses": {
           "200": {
             "description": "OK"
+          },
+          "201": {
+            "description": "Created"
+          },
+          "204": {
+            "description": "No Content"
+          },
+          "404": {
+            "description": "Not Found"
           },
           "500": {
             "description": "Internal Server Error"
@@ -127,6 +238,50 @@
       },
       "post": {
         "description": "",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "description": "Información para el nuevo videojuego.",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "title": {
+                  "type": "string",
+                  "example": "The Last of Us"
+                },
+                "author": {
+                  "type": "string",
+                  "example": "Naughty Dog"
+                },
+                "published_date": {
+                  "type": "string",
+                  "example": "2022-06-14"
+                },
+                "price": {
+                  "type": "number",
+                  "example": 19.99
+                },
+                "publisher": {
+                  "type": "string",
+                  "example": "Sony"
+                },
+                "category": {
+                  "type": "string",
+                  "example": "Zombie"
+                },
+                "stock": {
+                  "type": "number",
+                  "example": 100
+                },
+                "description": {
+                  "type": "string",
+                  "example": "Un juego de supervivencia post-apocalíptico."
+                }
+              }
+            }
+          }
+        ],
         "responses": {
           "201": {
             "description": "Created"
@@ -139,7 +294,7 @@
     },
     "/videojuegos/{id}": {
       "get": {
-        "description": "",
+        "description": "Retorna el videojuego segun el ID en la base de datos.",
         "parameters": [
           {
             "name": "id",
@@ -168,6 +323,28 @@
             "in": "path",
             "required": true,
             "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "description": "Campos a actualizar en el videojuego.",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "title": {
+                  "type": "string",
+                  "example": "The Last of Us Part I"
+                },
+                "price": {
+                  "type": "number",
+                  "example": 49.99
+                },
+                "stock": {
+                  "type": "number",
+                  "example": 80
+                }
+              }
+            }
           }
         ],
         "responses": {
@@ -183,7 +360,7 @@
         }
       },
       "delete": {
-        "description": "",
+        "description": "Elimina un juego de la base de datos usando su ID.",
         "parameters": [
           {
             "name": "id",
