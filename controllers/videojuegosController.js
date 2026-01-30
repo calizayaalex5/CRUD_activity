@@ -1,6 +1,6 @@
 const Videojuegos = require("../models/videojuegos");
 
-//Obetener videojuegos
+// Obtener videojuegos
 const getAll = async (req, res) => {
     // #swagger.description = 'Retorna todos los videojuegos de la base de datos.'
     try {
@@ -9,9 +9,9 @@ const getAll = async (req, res) => {
     } catch (error) {
         res.status(500).json({ message: error.message });
     }
-}
+};
 
-//obtener videojuego por ID
+// Obtener videojuego por ID
 const getVideojuegoById = async (req, res) => {
     // #swagger.description = 'Retorna el videojuego segun el ID en la base de datos.'
     try {
@@ -25,7 +25,7 @@ const getVideojuegoById = async (req, res) => {
     }
 };
 
-//Crear un nuevo item
+// Crear un nuevo item
 const createGame = async (req, res) => {
     /* #swagger.parameters['body'] = {
         in: 'body',
@@ -42,15 +42,15 @@ const createGame = async (req, res) => {
         }
     } */
     try {
+        // .create() es suficiente, no necesitas .save() después
         const nuevoJuego = await Videojuegos.create(req.body);
-        const savedItem = await nuevoJuego.save();
-        res.status(201).json(savedItem);
+        res.status(201).json(nuevoJuego);
     } catch (error) {
-        res.status(500).json({ message: "Error de validacion" + error.message });
+        res.status(500).json({ message: "Error de validacion: " + error.message });
     }
 };
 
-//Editar juego
+// Editar juego
 const editGame = async (req, res) => {
     /* #swagger.parameters['body'] = {
         in: 'body',
@@ -67,13 +67,13 @@ const editGame = async (req, res) => {
         if (!updatedGame) {
             return res.status(404).json({ message: "Juego no encontrado" });
         }
-        res.status(204).send();
+        res.status(200).json(updatedGame); // Cambiado a 200 para que veas el resultado en el video
     } catch (error) {
         res.status(500).json({ message: error.message });
     }
 };
 
-//delete juego
+// Eliminar juego
 const deleteGame = async (req, res) => {
     // #swagger.description = 'Elimina un juego de la base de datos usando su ID.'
     try {
@@ -86,7 +86,6 @@ const deleteGame = async (req, res) => {
         res.status(500).json({ message: error.message });
     }
 };
-
 
 module.exports = {
     getAll,
