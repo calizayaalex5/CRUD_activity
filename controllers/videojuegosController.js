@@ -13,6 +13,7 @@ const getAll = async (req, res) => {
 
 // Obtener videojuego por ID
 const getVideojuegoById = async (req, res) => {
+
     // #swagger.description = 'Retorna el videojuego segun el ID en la base de datos.'
     try {
         const videojuegos = await Videojuegos.findById(req.params.id);
@@ -27,6 +28,7 @@ const getVideojuegoById = async (req, res) => {
 
 // Crear un nuevo item
 const createGame = async (req, res) => {
+    // #swagger.security = [{"oauth2": ["read", "write"]}]
     /* #swagger.parameters['body'] = {
         in: 'body',
         description: 'Información para el nuevo videojuego.',
@@ -52,6 +54,7 @@ const createGame = async (req, res) => {
 
 // Editar juego
 const editGame = async (req, res) => {
+    // #swagger.security = [{"oauth2": ["read", "write"]}]
     /* #swagger.parameters['body'] = {
         in: 'body',
         description: 'Campos a actualizar en el videojuego.',
@@ -75,6 +78,7 @@ const editGame = async (req, res) => {
 
 // Eliminar juego
 const deleteGame = async (req, res) => {
+    // #swagger.security = [{"oauth2": ["read", "write"]}]
     // #swagger.description = 'Elimina un juego de la base de datos usando su ID.'
     try {
         const videojuegos = await Videojuegos.findByIdAndDelete(req.params.id);

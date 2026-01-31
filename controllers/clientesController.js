@@ -27,6 +27,7 @@ const getClienteById = async (req, res) => {
 
 // Crear cliente
 const createCliente = async (req, res) => {
+    // #swagger.security = [{"oauth2": ["read", "write"]}]
     /* #swagger.parameters['body'] = {
             in: 'body',
             description: 'Datos para registrar un nuevo cliente.',
@@ -51,6 +52,7 @@ const createCliente = async (req, res) => {
 
 // editar cliente
 const editCliente = async (req, res) => {
+    // #swagger.security = [{"oauth2": ["read", "write"]}]
     /* #swagger.parameters['body'] = {
             in: 'body',
             description: 'Datos del cliente a actualizar.',
@@ -75,6 +77,7 @@ const editCliente = async (req, res) => {
 
 // eliminar cliente
 const deleteCliente = async (req, res) => {
+    // #swagger.security = [{"oauth2": ["read", "write"]}]
     // #swagger.description = 'Elimina un cliente permanentemente de la base de datos.'
     try {
         const borrar = await Clientes.findByIdAndDelete(req.params.id);
