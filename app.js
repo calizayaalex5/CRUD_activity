@@ -26,7 +26,11 @@ app.use(cors());
 app.use(session({
     secret: process.env.SESSION_SECRET,
     resave: false,
-    saveUninitialized: true
+    saveUninitialized: true,
+    cookie: {
+        secure: false, // Cámbialo a true solo si tienes SSL configurado perfectamente, pero false es más seguro para pruebas
+        httpOnly: true
+    }
 }))
 
 //conexion con el passport
@@ -55,7 +59,7 @@ passport.deserializeUser((user, done) => {
 });
 
 //rutas de autenticacion
-app.get("/login", passport.authenticate('github', { scope: ['user:mail'] }));
+app.get("/login", passport.authenticate('github', { scope: ['user:email'] }));
 
 app.get("/logout", function (req, res, next) {
     req.logOut(function (err) {
