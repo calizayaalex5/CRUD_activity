@@ -23,7 +23,7 @@ const getClienteById = async (req, res) => {
     } catch (error) {
         res.status(500).json({ message: error.message });
     }
-}; // Agregado punto y coma para consistencia
+};
 
 // Crear cliente
 const createCliente = async (req, res) => {
