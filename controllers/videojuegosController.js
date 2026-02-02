@@ -70,7 +70,7 @@ const editGame = async (req, res) => {
         if (!updatedGame) {
             return res.status(404).json({ message: "Juego no encontrado" });
         }
-        res.status(200).json(updatedGame); // Cambiado a 200 para que veas el resultado en el video
+        res.status(200).json(updatedGame);
     } catch (error) {
         res.status(500).json({ message: error.message });
     }
