@@ -51,12 +51,12 @@ passport.use(new GitHubStrategy({
 //serializacion 
 //get the data from the user
 passport.serializeUser((user, done) => {
-    done(null, user.id);
+    done(null, user);
 });
 
 //deserializacion
 //search the user in the database
-passport.deserializeUser((id, done) => {
+passport.deserializeUser((user, done) => {
     done(null, user);
 });
 
