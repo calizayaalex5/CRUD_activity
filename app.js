@@ -28,7 +28,7 @@ app.use(session({
     resave: false,
     saveUninitialized: true,
     cookie: {
-        secure: false, // Cámbialo a true solo si tienes SSL configurado perfectamente, pero false es más seguro para pruebas
+        secure: false,
         httpOnly: true
     }
 }))
@@ -49,13 +49,20 @@ passport.use(new GitHubStrategy({
 ));
 
 //serializacion 
+//get the data from the user
 passport.serializeUser((user, done) => {
-    done(null, user);
+    done(null, user.id);
 });
 
 //deserializacion
-passport.deserializeUser((user, done) => {
-    done(null, user);
+//search the user in the database
+passport.deserializeUser(async (id, done) => {
+    try {
+        const user = await User.findById(id); // Buscamos en la DB
+        done(null, user);
+    } catch (err) {
+        done(err);
+    }
 });
 
 //rutas de autenticacion
