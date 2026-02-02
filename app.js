@@ -55,7 +55,7 @@ passport.serializeUser((user, done) => {
 });
 
 //deserializacion
-//search the user in the database
+//fin the user
 passport.deserializeUser((user, done) => {
     done(null, user);
 });
