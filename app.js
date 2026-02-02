@@ -56,13 +56,8 @@ passport.serializeUser((user, done) => {
 
 //deserializacion
 //search the user in the database
-passport.deserializeUser(async (id, done) => {
-    try {
-        const user = await User.findById(id); // Buscamos en la DB
-        done(null, user);
-    } catch (err) {
-        done(err);
-    }
+passport.deserializeUser((id, done) => {
+    done(null, user);
 });
 
 //rutas de autenticacion
